@@ -20,24 +20,7 @@ namespace TestProject1
             Assert.That(actual, Is.EqualTo(expected));
             //Assert.Pass();
         }
-        [Test]
-        public void TestMethodInsertIntoTable()
-        {
-            AddressBook addressBook = new AddressBook();
-            addressBook.FirstName = "sandeep";
-            addressBook.LastName = "singh";
-            addressBook.Address = "Street 2";
-            addressBook.City = "Chennai";
-            addressBook.State = "TamilNadu";
-            addressBook.ZipCode = "7874152";
-            addressBook.PhoneNumber = "7412587845";
-            addressBook.email = "abcd@gmail.com";
-            addressBook.addressBookName = "Collegue";
-            addressBook.addressBookType = "Friends";
-            int actual = addressBookRepo.InsertIntoTable(addressBook);
-            int expected = 1;
-            Assert.AreEqual(expected, actual);
-        }
+       
         [Test]
         public void TestMethodToCheckModify()
         {
@@ -58,6 +41,13 @@ namespace TestProject1
             addressBook.LastName = "Aadil";
             int actual = addressBookRepo.DeletePerson(addressBook);
             int expected = 1;
+            Assert.AreEqual(expected, actual);
+        }
+        [Test]
+        public void PrintContactBasedOnCityName()
+        {
+            int actual = addressBookRepo.PrintDataBasedOnCity("Chennai");
+            int expected = 3;
             Assert.AreEqual(expected, actual);
         }
     }
