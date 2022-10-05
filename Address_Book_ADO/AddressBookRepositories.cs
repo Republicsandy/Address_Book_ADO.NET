@@ -52,6 +52,45 @@ namespace Address_Book_ADO
             }
             return employeepayroll.Count;
         }
+        public int InsertIntoTable(AddressBook addressBook)
+        {
+            int change = 0;
+            try
+            {
+                using (sqlConnection)
+                {
+                    SqlCommand sqlCommand = new SqlCommand("spInsertintoTable", this.sqlConnection);
+                    //setting command type as stored procedure
+                    sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@FirstName", addressBook.FirstName);
+                    sqlCommand.Parameters.AddWithValue("@LastName", addressBook.LastName);
+                    sqlCommand.Parameters.AddWithValue("@Address", addressBook.Address + " " + addressBook.State + " " + addressBook.ZipCode);
+                    sqlCommand.Parameters.AddWithValue("@City", addressBook.City);
+                    sqlCommand.Parameters.AddWithValue("@State", addressBook.State);
+                    sqlCommand.Parameters.AddWithValue("@ZipCode", addressBook.ZipCode);
+                    sqlCommand.Parameters.AddWithValue("@PhoneNumber", addressBook.PhoneNumber);
+                    sqlCommand.Parameters.AddWithValue("@email", addressBook.email);
+                    sqlCommand.Parameters.AddWithValue("@addressBookName", addressBook.addressBookName);
+                    sqlCommand.Parameters.AddWithValue("@addressBookType", addressBook.addressBookType);
+                    sqlConnection.Open();
+                    //returns the number of rows updated
+                    int result = sqlCommand.ExecuteNonQuery();
+                    if (result != 0)
+                        change = 1;
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return change;
+        }
         public AddressBook GetDetail(SqlDataReader sqlDataReader)
         {
 
@@ -66,6 +105,44 @@ namespace Address_Book_ADO
             Console.WriteLine("{0} | {1} | {2} | {3} | {4} | {5} | {6}", addressBook.FirstName, addressBook.LastName, addressBook.Address, addressBook.PhoneNumber, addressBook.email, addressBook.addressBookName, addressBook.addressBookType);
             return addressBook;
 
+        }
+
+        public int ModifyDetails(AddressBook addressBook)
+        {
+            int change = 0;
+            try
+            {
+                using (sqlConnection)
+                {
+                    //spUdpateEmployeeDetails is stored procedure
+                    SqlCommand sqlCommand = new SqlCommand("spModify", this.sqlConnection);
+                    //setting command type as stored procedure
+                    sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                    //sending params 
+                    sqlCommand.Parameters.AddWithValue("@FirstName", addressBook.FirstName);
+                    sqlCommand.Parameters.AddWithValue("@LastName", addressBook.LastName);
+                    sqlCommand.Parameters.AddWithValue("@PhoneNumber", addressBook.PhoneNumber);
+                    sqlCommand.Parameters.AddWithValue("@email", addressBook.email);
+                    sqlConnection.Open();
+                    //returns the number of rows updated
+                    int result = sqlCommand.ExecuteNonQuery();
+                    if (result != 0)
+                        change = 1;
+
+                    //close reader
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                //closes the connection
+                sqlConnection.Close();
+
+            }
+            return change;
         }
     }
 }
