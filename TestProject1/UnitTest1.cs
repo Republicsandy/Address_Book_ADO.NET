@@ -61,5 +61,14 @@ namespace TestProject1
             CollectionAssert.AreEqual(actual, expected);
         }
 
+        [Test]
+        public void SortBasedOnNameGivenCity()
+        {
+            List<string> actual = addressBookRepo.PrintSortedNameBasedOnCity("Chennai");
+            string[] temp = { "Amir", "Ram" };
+            var expected = new List<string>(temp);
+            CollectionAssert.AreEqual(actual, expected);
+        }
+
     }
 }
