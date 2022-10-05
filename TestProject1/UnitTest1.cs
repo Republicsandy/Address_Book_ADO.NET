@@ -24,9 +24,9 @@ namespace TestProject1
         public void TestMethodInsertIntoTable()
         {
             AddressBook addressBook = new AddressBook();
-            addressBook.FirstName = "Mohd";
-            addressBook.LastName = "Aadil";
-            addressBook.Address = "Hello Street";
+            addressBook.FirstName = "sandeep";
+            addressBook.LastName = "singh";
+            addressBook.Address = "Street 2";
             addressBook.City = "Chennai";
             addressBook.State = "TamilNadu";
             addressBook.ZipCode = "7874152";
@@ -47,6 +47,16 @@ namespace TestProject1
             addressBook.PhoneNumber = "7412369852";
             addressBook.email = "xyz@gmail.com";
             int actual = addressBookRepo.ModifyDetails(addressBook);
+            int expected = 1;
+            Assert.AreEqual(expected, actual);
+        }
+        [Test]
+        public void DeleteContact()
+        {
+            AddressBook addressBook = new AddressBook();
+            addressBook.FirstName = "Mohd";
+            addressBook.LastName = "Aadil";
+            int actual = addressBookRepo.DeletePerson(addressBook);
             int expected = 1;
             Assert.AreEqual(expected, actual);
         }
