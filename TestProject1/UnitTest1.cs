@@ -1,5 +1,6 @@
 using Address_Book_ADO;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace TestProject1
 {
@@ -50,5 +51,15 @@ namespace TestProject1
             int expected = 3;
             Assert.AreEqual(expected, actual);
         }
+
+        [Test]
+        public void PrintCountBasedOnCityAndState()
+        {
+            List<int> actual = addressBookRepo.PrintCountBasedOnCityAndStateName();
+            int[] temp = { 1, 1, 3, 1 };
+            var expected = new List<int>(temp);
+            CollectionAssert.AreEqual(actual, expected);
+        }
+
     }
 }
