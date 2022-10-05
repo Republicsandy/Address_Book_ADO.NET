@@ -70,5 +70,14 @@ namespace TestProject1
             CollectionAssert.AreEqual(actual, expected);
         }
 
+        [Test]
+        public void TestMethodPrintCountBasedOnType()
+        {
+            List<int> actual = addressBookRepo.PrintCountBasedOnAddressBookType();
+            int[] temp = { 2, 2, 1 };
+            var expected = new List<int>(temp);
+            CollectionAssert.AreEqual(actual, expected);
+        }
+
     }
 }
