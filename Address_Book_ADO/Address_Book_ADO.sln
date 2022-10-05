@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Address_Book_ADO", "Address_Book_ADO.csproj", "{BDFBDABE-E093-47D2-B2E5-001D9AACE95B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "..\TestProject1\TestProject1.csproj", "{E883756D-8C63-4324-B95E-D876DE18FA20}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDFBDABE-E093-47D2-B2E5-001D9AACE95B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDFBDABE-E093-47D2-B2E5-001D9AACE95B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDFBDABE-E093-47D2-B2E5-001D9AACE95B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDFBDABE-E093-47D2-B2E5-001D9AACE95B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E883756D-8C63-4324-B95E-D876DE18FA20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E883756D-8C63-4324-B95E-D876DE18FA20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E883756D-8C63-4324-B95E-D876DE18FA20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E883756D-8C63-4324-B95E-D876DE18FA20}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35298DE7-3956-4D23-B28C-CA4B42D0440D}
+	EndGlobalSection
+EndGlobal
